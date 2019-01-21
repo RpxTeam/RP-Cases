@@ -1,0 +1,97 @@
+@import "assets/sass/components/bourbon/bourbon"
+@import "assets/sass/components/grid-responsive"
+@import "assets/sass/components/hamburger-icon"
+
+/*
+ * HELP
+ */
+// @include item or +item
+// @extend %class or .class
+// $variable = items
+
+/*
+ * FONTS
+ */
++font-face("Campton-Bold", "assets/fonts/Campton-Bold")
++font-face("Campton-Book", "assets/fonts/Campton-Book")
+$font: 'Campton-Book', Arial, Sans-serif
+$font-bold: 'Campton-Bold', Arial, Sans-serif
+
+$font: 'Campton-Book', sans-serif
+
+/*
+ * COLORS
+ */
+$white: #ffffff
+$black: #3b3b3b
+$grey: #d0d0d0
+$blue: #3970a0
+$orange: #2d1a76
+$orangeM: #bcbae5
+
+$urlImg: 'assets/img/'
+/*
+ * EXTENDS CLASSES
+ */
+*
+	margin: 0
+	padding: 0
+	text-decoration: none
+
+html, body
+	heigth: 100%
+a
+	@extend %transition
+%transition
+	@include transition(all .4s linear)
+%circle
+	@include border-top-radius(50%)
+	@include border-bottom-radius(50%)
+%blockCenter
+	margin-left: auto
+	margin-right: auto
+.clearfix
+	clear: both
+%overlay
+	+position(absolute, 0 0 0 0)
+	+size(100%)
+	background: rgba($black, .5)
+	display: block
+%inline-vertical
+	display: inline-block
+	vertical-align: middle
+%clearfix
+	content: '.'
+	display: block
+	clear: both
+	height: 0
+	line-height: 0
+	font-size: 0
+	visibility: hidden
+	overflow: hidden
+
+/*
+ * RESPONSIVE GRID
+ */
+// +desktop-large - TAM: 1150px
+// +desktop-medium - TAM: 993px
+// +desktop-small - TAM: 840px
+// +tablet - TAM: 768px
+// +mobile-large - TAM: 480px
+// +mobile-medium - TAM: 375px
+// +mobile-small - TAM: 325px
+
+.gridE
+	max-width: 210px
+	@extend %blockCenter
+
+.gridD
+	max-width: 970px
+	@extend %blockCenter
+	+desktop-medium
+		+padding(null 15px)
+
+.pull-left
+	float: left
+.pull-right
+	float: right

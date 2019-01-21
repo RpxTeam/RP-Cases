@@ -1,0 +1,573 @@
+/*
+	Theme Name: RP Cases
+	Theme URI: http://rperformancegroup.com
+	Author: Breno Franca
+	Author URI: http://brefranca.com.br
+	Description: Tema para o RP Cases
+	Version: 1.0.0
+	License: GNU General Public License v2 or later
+	License URI: LICENSE
+	Text Domain: RPerformance */	
+@import "configs"
+
+html, body
+	height: 100%
+
+body
+	font-family: $font
+	font-size: 16px
+	color: #585858
+	.top-detail
+		+size(100% 56px)
+		background: $blue
+		display: block
+		@media(max-width: 768px)
+			height: 20px
+		@media(max-width: 580px)
+			height: 10px
+	header
+		background: $grey
+		padding-left: 70px
+		+size(calc(100% - 70px) 70px)
+		display: table
+		&::after
+			@extend %clearfix
+		@media(max-width: 1415px)
+			padding-left: 40px
+			width: calc(100% - 40px)
+		@media(max-width: 992px)
+			display: block
+			height: auto
+			+padding(0)
+			width: auto
+			position: relative
+			background: $white
+		#btns-mobile
+			display: none
+			+justify-content(space-between)
+			+align-items(center)
+			height: 60px
+			background: $white
+			+padding(null 40px)
+			background: $white
+			@media(max-width: 992px)
+				+display(flex)
+				+padding(null 10px)
+				float: right
+			@media(max-width: 880px)
+				float: none
+			a
+				+display(flex)
+				+flex-direction(column)
+				+justify-content(space-between)
+				+size(40px 30px)
+				span
+					+size(100% 4px)
+					background: $blue
+					display: block
+					@extend %transition
+					position: relative
+				&.active
+					span
+						&:first-child
+							+transform(rotate(45deg))
+							top: 14px
+						&:nth-child(2)
+							opacity: 0
+							visibible: hidden
+						&:last-child
+							+transform(rotate(-45deg))
+							bottom: 12px
+		.logo
+			display: none
+			@media(max-width: 880px)
+				display: block
+				+padding(10px null)
+				img
+					display: block
+					+margin(null auto)
+					max-width: 150px
+					height: auto
+		nav
+			display: table-cell
+			vertical-align: middle
+			@media(max-width: 992px)
+				display: none
+				+padding(20px 30px)
+				background: $grey
+				+position(absolute, 100% 0 null 0)
+			@media(max-width: 880px)
+				position: relative
+				top: 0
+				background: #ff8900
+			@media(max-width: 580px)
+				+padding(10px 0)
+		ul
+			@media(max-width: 1300px)
+				display: flex
+				align-items: center
+			@media(max-width: 992px)
+				flex-direction: column
+			li
+				display: inline-block
+				+margin(null 8px)
+				padding-bottom: 2px
+				@media(max-width: 1180px)
+					text-align: center
+				@media(max-width: 1370px)
+					+margin(null 5px)
+				@media(max-width: 992px)
+					width: 100%
+					display: block
+					+margin(null 0)
+					padding-bottom: 0
+				a
+					font-size: 12px
+					color: $blue
+					text-transform: uppercase
+					display: block
+					@media(max-width: 992px)
+						+padding(10px)
+				&.current_page_item
+					a
+						font-family: $font-bold
+						position: relative
+						&::before
+							content: ''
+							+size(100% 2px)
+							display: block
+							background: $orange
+							+position(absolute, null null -4px 0)
+					@media(max-width: 992px)
+						a
+							background: $blue
+							color: $white
+							&::before
+								content: none
+		#second-menu
+			background: $grey
+			background-position: center right 10px
+			display: none
+			@media(max-width: 880px)
+				display: block
+				position: relative
+				padding: 0
+			.placeholder
+				background: url('assets/img/arrow-down.png') center right 10px no-repeat
+				// border-top: 2px solid $blue
+				// border-bottom: 2px solid $blue
+				+padding(15px 10px)
+				p
+					font-family: $font-bold
+					text-transform: uppercase
+					font-size: 14px
+					color: $blue
+			ul
+				+position(absolute, 100% null null 0)
+				width: 100%
+				background: $grey
+				border-top: 1px solid $blue
+				display: none
+				li
+					a
+						font-family: $font-bold
+	.page
+		+display(flex)
+		height: 100%
+		@media(max-width: 880px)
+			+flex-direction(column)
+		.page
+			display: block
+		&::after
+			@extend %clearfix
+		aside
+			+size(28% 100%)
+			background: url('assets/img/bg-aside.jpg') center bottom no-repeat
+			position: relative
+			@media(max-width: 1400px)
+				width: 22%
+			@media(max-width: 1280px)
+				width: 25%
+			@media(max-width: 880px)
+				width: 100%
+				display: none
+			.grid
+				max-width: 256px
+				+margin(null 0 null auto)
+				position: relative
+			.logo
+				max-width: 210px
+				+margin(40px auto 25px)
+				img
+					display: block
+					max-width: 100%
+					height: auto
+			nav
+				ul
+					li
+						display: block
+						a
+							color: $blue
+							display: block
+							+padding(17px 15px 17px 55px)
+							&.current, &:hover
+								background: $blue
+								color: $white
+								font-family: $font-bold
+		&.home
+			aside
+				background-image: url('assets/img/bg-aside-home.jpg')
+				background-size: 100% auto
+			#description
+				height: 260px
+				+display(flex)
+				+align-items(center)
+				background: rgba($grey, .2)
+				@media(max-width: 768px)
+					height: auto
+					+padding(50px null)
+		&.fixed
+			aside
+				position: fixed
+				height: 100%
+				top: 0
+			#content
+				margin-left: 28%
+				@media(max-width: 1400px)
+					margin-left: 22%
+				@media(max-width: 1280px)
+					margin-left: 25%
+		#content
+			width: 72%
+			@media(max-width: 1400px)
+				width: 88%
+			@media(max-width: 1280px)
+				width: 75%
+			@media(max-width: 880px)
+				width: 100%
+		.title
+			background-position: center center
+			background-size: cover
+			background-repeat: no-repeat
+			@media(max-width: 992px)
+				text-align: center
+			h1
+				font-size: 60px
+				color: $white
+				text-transform: uppercase
+				font-family: $font-bold
+				+padding(90px null 60px 80px)
+				@media(max-width: 1415px)
+					+padding(90px null 60px 40px)
+				@media(max-width: 992px)
+					font-size: 40px
+					+padding(null 70px)
+				@media(max-width: 580px)
+					+padding(80px 15px)
+					font-size: 30px
+				@media(max-width: 480px)
+					font-size: 25px
+		#description
+			background: rgba($grey, .2)
+			+padding(50px null)
+			p
+				+padding(null 80px)
+				max-width: 740px
+				@media(max-width: 1415px)
+					+padding(null 40px)
+		#modules
+			+padding(60px 80px)
+			@media(max-width: 14150px)
+				+padding(null 40px)
+		.module
+			max-width: 740px
+			.content
+				+padding(40px null)
+				border-bottom: 2px solid $blue
+				strong
+					font-family: $font-bold
+				h2
+					font-size: 26px
+					font-family: $font-bold
+					color: $orangeM
+					+margin(15px null 10px)
+					span
+						color: $orangeM!important
+					@media(max-width: 580px)
+						font-size: 22px
+				p
+					text-align: justify
+					padding-bottom: 20px
+				img
+					max-width: 100%
+					height: auto
+					display: block
+					+margin(15px null)
+				.alignleft
+					+margin(0 10px 0 0)
+					float: left
+				.alignright
+					+margin(0 0 0 10px)
+					float: right
+				.aligncenter
+					+margin(null auto)
+				.title
+					background: none
+					margin-bottom: 20px
+					+display(flex)
+					+align-items(center)
+					+justify-content(space-between)
+					h2
+						display: inline-block
+						vertical-align: middle
+						background: $blue
+						+padding(10px 15px)
+						font-size: 26px
+						color: $white
+						text-transform: uppercase
+						+margin(0 null)
+						span
+							color: $white!important
+						@media(max-width: 580px)
+							font-size: 22px
+					// &.title2
+					// 	h2
+					// 		font-size: 26px
+					// 		font-family: $font-bold
+					// 		color: $orangeM
+					// 		+margin(15px null 10px)
+					// 		padding: 0
+					// 		background: transparent
+					// 		text-transform: none
+					// 		span
+					// 			color: $orangeM!important
+					// 		@media(max-width: 580px)
+					// 			font-size: 22px
+					&.btn-download
+						h2
+							max-width: 60%
+				.download
+					height: 49px
+					+display(flex)
+					+align-items(center)
+					border: 2px dashed $orange
+					@extend %transition
+					&:hover
+						background: $orange
+						a
+							color: $white
+							img
+								+filter(brightness(-1) invert(1))
+					a
+						display: inline-block
+						+padding(null 20px)
+						color: $blue
+						font-weight: 700
+						font-size: 12px
+						text-transform: uppercase
+						@extend %transition
+						&:hover
+							color: $white
+						img
+							display: inline-block
+							vertical-align: -2px
+							margin: 0
+							@extend %transition
+				.especificacoes
+					margin-bottom: 30px
+					ul
+						display: block
+						background: $grey
+						+padding(5px null)
+						li
+							display: inline-block
+							+padding(10px 11px)
+							text-transform: uppercase
+							border-left: 1px solid $orange
+							&:first-child
+								border-left: none
+							a
+								color: $blue
+								display: inline-block
+								vertical-align: middle
+								font-size: 13px
+								text-transform: uppercase
+								@extend %transition
+							.icon
+								margin-left: 2px
+								display: inline-block
+								vertical-align: -2px
+								+size(14px)
+								background: url('assets/img/icon-plus.png') center center no-repeat
+							&.active
+								a
+									color: $orange
+									font-weight: 700
+									.icon
+										background: url('assets/img/icon-minus.png') center center no-repeat
+					.especificacao
+						background: #eee
+						.fechar
+							+position(absolute, 10px 20px null null)
+							color: $orange
+							font-weight: 900
+							font-size: 20px
+							line-height: 15px
+							cursor: pointer
+						.item
+							+padding(30px 20px)
+							position: relative
+							display: none
+							p
+								+padding(10px null)
+							&.active
+								display: block
+			&:first-child
+				.content
+					padding-top: 0
+			.images
+				img
+					+margin(15px null)
+					display: block
+					max-width: 100%
+					height: auto
+		.copyright
+			+padding(20px null 20px 235px)
+			@media(max-width: 992px)
+				text-align: center
+				+padding(null 70px)
+			@media(max-width: 580px)
+				+padding(null 40px)
+			p
+				font-size: 10px
+				font-family: $font-bold
+				color: $blue
+
+	#downloads
+		.downloads
+			margin-top: 50px
+			+display(flex)
+			+flex-wrap(wrap)
+			max-width: 740px
+			padding-left: 80px
+			@media(max-width: 768px)
+				+justify-content(center)
+			.download
+				width: calc(50% - 60px)
+				+padding(null 30px)
+				margin-bottom: 30px
+				.icone
+					display: block
+					+size(100% 200px)
+					+margin(null auto)
+					background: url('assets/img/logo.png') center center no-repeat
+					background-size: 100% auto
+					border: 1px solid #eee
+				.text
+					// +margin(null 15px)
+					padding-bottom: 30px
+					// border-bottom: 2px solid $blue
+				h3
+					font-size: 24px
+					color: $orange
+					margin-bottom: 10px
+					font-weight: 900
+				p
+					padding-bottom: 10px
+				a
+					margin-top: 15px
+					background: $blue
+					color: $white
+					+padding(10px 15px)
+					display: block
+					text-align: center
+					font-weight: 700
+					text-transform: uppercase
+					font-size: 12px
+					img
+						vertical-align: -2px
+					&:hover
+						background: $grey
+
+	#arquivos
+		padding-top: 50px
+		+display(flex)
+		+flex-wrap(wrap)
+		max-width: 740px
+		padding-left: 80px
+		padding-bottom: 30px
+		@media(max-width: 1415px)
+			+padding(null 40px)
+		@media(max-width: 768px)
+			+padding(null 15px)
+		.arquivo
+			+display(flex)
+			margin-bottom: 30px
+			@media(max-width: 768px)
+				+flex-direction(column)
+				+align-items(center)
+			&:last-child
+				margin-bottom: 0
+			.image
+				+size(370px 200px)
+				background: $orange
+				background-position: center center
+				background-repeat: no-repeat
+				background-size: cover
+				@media(max-width: 1100px)
+					width: 49%
+				@media(max-width: 580px)
+					width: 80%
+				@media(max-width: 480px)
+					width: 100%
+			.text
+				margin-left: 20px
+				width: 370px
+				text-align: justify
+				@media(max-width: 1100px)
+					width: 49%
+				@media(max-width: 768px)
+					+margin(20px auto null)
+				@media(max-width: 580px)
+					width: 80%
+				@media(max-width: 480px)
+					width: 100%
+				.downloads
+					margin-top: 20px
+					a
+						display: block
+						text-align: center
+						+padding(10px null)
+						background: $blue
+						text-transform: uppercase
+						color: $white
+						margin-bottom: 10px
+						&:last-child
+							margin-bottom: 0
+						&:hover
+							background: $grey
+
+	#voltar
+		+position(fixed, null 30px -60px null)
+		+size(55px)
+		+display(flex)
+		+align-items(center)
+		+justify-content(center)
+		+border-top-radius(50%)
+		+border-bottom-radius(50%)
+		background: $blue
+		@extend %transition
+		a
+			color: $orange
+			font-weight: 700
+			text-transform: uppercase
+			font-size: 30px
+			i, span
+				display: block
+				text-align: center
+		&:hover
+			background: $orange
+			a
+				color: $blue
+		&.show
+			bottom: 30px
